@@ -60,3 +60,21 @@ Follow these instructions to get a copy of the project up and running on your lo
 
    ```bash
    git clone https://github.com/your-username/online-art-gallery.git
+
+2. Navigate to project directory:
+
+   ```bash
+   cd Online-Art-Gallery
+
+3. Install the project dependecies:
+
+   ```bash
+   pip install -r requirements.txt
+
+4. Start the development server:
+
+   ```bash
+   python manage.py runserver
+
+5. Open your web browser and go to http://localhost:8000 to access the Online Art Gallery.
+
