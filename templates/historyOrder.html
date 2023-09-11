@@ -1,0 +1,12 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+{% for orders,arts,users in order %}
+
+<div class="card card-layout back-class" style="width: 50rem;">
+    <img class="card-img-top" src="{{ arts.image.url }}" style="width:100%"></img>
+    <h3>price = {{ arts.price}}</h3>
+    <h3>Order Placed by {{ users.username}}</h3>
+    <h3>date = {{ orders.date }}</h3>
+</div>
+{% endfor %}
+{% endblock %}

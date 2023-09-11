@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        background: #efdeac;
+    }
+
+    .wrapper {
+        position: relative;
+        align-items: center;
+        max-width: 430px;
+        width: 100%;
+        background: #fff;
+        padding: 30px;
+        border-radius: 6px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .wrapper h2 {
+        position: relative;
+        font-size: 34px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .wrapper h2::before {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 28px;
+        border-radius: 12px;
+        background: #85ebbe;
+    }
+
+    .wrapper form {
+        margin-top: 20px;
+    }
+
+    .wrapper form .input-box {
+        height: 52px;
+        margin: 18px 0;
+    }
+
+    form .input-box input {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        padding: 0 15px;
+        font-size: 17px;
+        font-weight: 400;
+        color: #333;
+        border: 1.5px solid #f0d506;
+        border-bottom-width: 2.5px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+
+    .input-box input:focus,
+    .input-box input:valid {
+        border-color: #45b301;
+    }
+
+    input[type=checkbox] {
+        accent-color: #45b301;
+    }
+
+    form .policy {
+        display: flex;
+        align-items: center;
+    }
+
+    form h3 {
+        color: #707070;
+        font-size: 14px;
+        font-weight: 500;
+        margin-left: 10px;
+    }
+
+    .input-box.button input {
+        color: #070707;
+        letter-spacing: 1px;
+        border: none;
+        background: #f0d506;
+        cursor: pointer;
+    }
+
+    .input-box.button input:hover {
+        background: #45b301;
+    }
+
+    form .text h3 {
+        color: #333;
+        width: 100%;
+        text-align: center;
+    }
+
+    form .text h3 a:hover {
+        text-decoration: underline;
+    }
+</style>
+<div class="wrapper">
+    <h2>One-Time Shipment Details</h2>
+    <form action="{% url 'saveshipment' %}" method="POST">
+        {% csrf_token %}
+        <div class="input-box">
+            <label for="uname"><b>Full Name</b></label>
+            <input type="text" placeholder="Enter your name" required name="name">
+        </div><br>
+        <div class="input-box">
+            <label for="uaddr"><b>Address</b></label>
+            <input type="text" name="address" placeholder="FlatNo,StreetName,City,State" required>
+        </div><br>
+        <div class="input-box">
+            <label for="upin"><b>Pincode</b></label>
+            <input type="text" name="pin" placeholder="xxxxxx" required>
+        </div><br>
+        <div class="input-box">
+            <label for="uphn"><b>Phone</b></label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phn number"
+                pattern="[0-9]{10}" required>
+        </div><br>
+        <div class="policy">
+            <input type="checkbox" checked>
+            <h3>I am an Indian</h3>
+        </div>
+        <div class="input-box button">
+            <input type="Submit" value="Save">
+        </div>
+    </form>
+</div>
+{% endblock %}
