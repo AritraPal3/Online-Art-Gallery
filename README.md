@@ -46,7 +46,6 @@ The Online Art Gallery is a web-based platform that allows artists to showcase t
 - HTML/CSS: Frontend markup and styling.
 - Bootstrap: Frontend framework for responsive design.
 - SQLite: Lightweight, built-in database for development.
-- [Add other technologies used]
 
 ---
 
