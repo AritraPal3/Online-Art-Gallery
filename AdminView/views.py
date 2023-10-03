@@ -19,13 +19,11 @@ def addPage(request):
 
 def addP(request):
     if(request.method=="POST"):
-        #base_directory = r'D:\Torr\Art-Gallery-Using-Django\Ardent\media'
         artname=request.POST['art_name']
         artext=request.POST['image_description']
         
         img=request.FILES.get('image_name')  ##saving img content
         image_name = request.POST.get('image_name')
-        
         
         print(img)
         artprice=request.POST['price']
