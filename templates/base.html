@@ -126,12 +126,12 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if not user.is_authenticated %}
-                    <li><a href='http://127.0.0.1:8000/login/register'> <span class="glyphicon glyphicon-user"></span>
+                    <li><a href='/login/register'> <span class="glyphicon glyphicon-user"></span>
                             Sign Up</a></li>
-                    <li><a href="http://127.0.0.1:8000/login/login"><span class="glyphicon glyphicon-log-in"></span>
+                    <li><a href="/login/login"><span class="glyphicon glyphicon-log-in"></span>
                             Login</a></li>
                     {% else %}
-                    <li><a href="http://127.0.0.1:8000/login/logout"><span class="glyphicon glyphicon-log-in"></span>
+                    <li><a href="/login/logout"><span class="glyphicon glyphicon-log-in"></span>
                             Logout</a></li>
                     {% endif %}
                 </ul>

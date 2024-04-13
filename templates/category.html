@@ -1,5 +1,5 @@
 
-{% extends 'base.html' %}
+{% extends 'base.html' %} <!-- uses the base.html file to use the navbar-->
 
 {% block content %}
 
@@ -26,7 +26,7 @@
     }
 </style>
 
-{% for art in arts %}
+{% for art in arts %} {% comment %} arts object is being sent by the function written in the views.py file {% endcomment %}
 
 <div class="card card-layout back-class" style="width: 50rem;">
     <img class="card-img-top" src="{{ art.artid.image.url }}" style="width:100%"></img>

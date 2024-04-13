@@ -8,15 +8,15 @@ from datetime import datetime
 def home_view(request, *args, ** kwargs):
     arts = Art.objects.all()
     tags = Tag.objects.values('tag').distinct()
-    context = {
+    context = { #dictionary
         'arts': arts,
         'tags': tags
     }
     return render(request, "index.html", context)
 
 def cat(request, id, *args, **kwargs):
-    arts=Tag.objects.filter(tag=id)
-    return render(request, 'category.html', {'arts':arts})
+    arts=Tag.objects.filter(tag=id) #select command
+    return render(request, 'category.html', {'arts':arts}) #returns the processed request 
     
 def description_view(request, id, *args, **kwargs):
     art = Art.objects.get(id=id)
@@ -38,7 +38,7 @@ def add(request, id, *args, **kwargs):
     else:
         obj = MyCart.objects.create(
             user=user_obj[0], art_id=art_obj[0], added_date=datetime.now())
-        obj.save()
+        obj.save() #inserting commands
     return redirect('../../../')
 
     

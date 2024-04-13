@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 
 
-def login(request):
+def login(request): #request here refers to the login credentials that the user has submitted
     if request.method == 'POST':
         user_name = request.POST.get('user_name',False)
         password = request.POST['password']
@@ -14,6 +14,8 @@ def login(request):
                 return redirect('adminView/')
             else:
                 return redirect('../')
+        else:
+            return redirect("register")
     return render(request, 'login.html', {})
 
 

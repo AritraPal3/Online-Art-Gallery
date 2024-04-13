@@ -10,17 +10,14 @@ User = get_user_model()
 
 # Artist
 class Artist(models.Model):
-
     artist_name = models.CharField(max_length=300 , null = False, blank = False)
     speciality = models.CharField(max_length=300,null = False, blank = False)
 
 # Art
-
-
 class Art(models.Model):
     art_name = models.CharField(max_length=50, null=False, blank=False)
     art_artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to=os.path.join(BASE_DIR, "media"))
+    image = models.ImageField(upload_to='media/')
     price = models.FloatField(null=False, blank=False)
     instock = models.BooleanField(null = False,blank=False, default=True)
     description = models.TextField(null=False, blank=False)
@@ -41,8 +38,6 @@ class MyCart(models.Model):
 
 
 # Order Table
-
-
 class MyOrder(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -50,7 +45,6 @@ class MyOrder(models.Model):
     date = models.DateTimeField(default=datetime.now())
     
 class Shipment(models.Model):
-    
     customer_id=models.ForeignKey(User,on_delete=models.CASCADE)
     address=models.CharField(max_length=500)
     pincode=models.CharField(max_length=6)
